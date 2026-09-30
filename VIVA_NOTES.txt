@@ -1,0 +1,337 @@
+﻿================================================================
+         BHASHASETU — VIVA PREPARATION NOTES
+         Mumbai University — CEP (Community Engagement Project)
+         Digital Preservation of Regional Linguistic Heritage
+================================================================
+
+----------------------------------------------------------------
+1. PROJECT KA NAAM AUR MATLAB
+----------------------------------------------------------------
+
+Project Name  : BhashaSetu (bhasha setu)
+Full Form     : Cultural Endangered Languages Preservation Platform
+Course        : CEP — Community Engagement Project
+University    : Mumbai University
+
+"Bhasha" = Language
+"Setu"   = Bridge (pul)
+
+MATLAB: Yeh ek digital platform hai jo endangered (khatam hone
+wali) regional languages aur dialects ko preserve karta hai.
+Unhe internet pe archive karta hai taaki wo languages khatam
+na ho jaayen.
+
+----------------------------------------------------------------
+2. PROBLEM — YEH PROJECT KYO BANAYA?
+----------------------------------------------------------------
+
+UNESCO ke mutabiq India ki 197+ languages aaj ENDANGERED hain.
+Jab ek language marti hai, uske saath:
+  - Lok kathayen (Folk Stories)
+  - Proverbs (kehawatein)
+  - Pronunciations (uccharan)
+  - Cultural knowledge
+  ...sab kuch humesha ke liye khatam ho jaata hai.
+
+Problems jo humne solve ki:
+  1. Kai languages sirf maukhik hain — koi written script nahi
+  2. Research scattered hai — academic papers me band
+  3. Koi engaging platform nahi tha young generation ke liye
+  4. Community verification ka koi system nahi tha
+
+----------------------------------------------------------------
+3. TECHNOLOGIES USED (TECH STACK)
+----------------------------------------------------------------
+
+FRONTEND FRAMEWORK:
+  -> React 19       : UI banane ke liye (component-based)
+  -> TypeScript     : Type-safe JavaScript (bugs kam hoti hain)
+  -> Vite           : Super fast dev server & build tool
+  -> React Router   : Pages ke beech navigate karna (SPA)
+
+STYLING:
+  -> Tailwind CSS v4     : Utility-first CSS framework
+  -> Custom CSS          : Glassmorphism, glow animations
+  -> Google Fonts        : Outfit, Plus Jakarta Sans,
+                           Noto Sans Devanagari
+
+UI / ANIMATIONS:
+  -> Framer Motion  : Smooth page animations & transitions
+  -> Lucide React   : Modern icons library
+  -> Recharts       : Charts & graphs (Dashboard page pe)
+
+MAP:
+  -> Leaflet        : Interactive geographic map
+  -> React Leaflet  : Leaflet ka React wrapper
+  -> OpenStreetMap  : Free map tiles — no API key needed
+
+STATE MANAGEMENT:
+  -> React Context API   : Global app state (AppContext.tsx)
+  -> Mock Data           : mockData.ts — simulated database
+
+AUDIO:
+  -> Browser Web Audio API : In-browser voice recording
+  -> HTML5 Audio           : Playback with waveform visualizer
+
+DEVELOPER TOOLS:
+  -> Serena LSP     : Code intelligence & symbol navigation
+  -> ESLint/oxlint  : Code quality checker
+  -> npm            : Package manager
+
+----------------------------------------------------------------
+4. FEATURES — KYA KYA KAAM KARTA HAI?
+----------------------------------------------------------------
+
+PAGE              URL                  KYA KARTA HAI
+-----------       -------------------  ----------------------
+Home Page         /                    Hero, stats, featured
+                                       stories & audio preview
+
+Explore           /explore             Sabhi languages ki cards.
+                                       Filter by status
+
+Language Detail   /language/:id        Ek language ki poori info.
+                                       Words, Phrases, Stories,
+                                       Audio — tabs ke saath
+
+Audio Archive     /audio               Sabhi recordings sun sako.
+                                       Filter + waveform visualizer
+
+Stories           /stories             Folk tales, legends,
+                                       personal narratives
+
+Story Detail      /stories/:id         Dual-language reader:
+                                       Original + English side-by-side
+
+Word Search       /word-search         Dictionary search — cross
+                                       all languages
+
+Language Map      /map                 India ka interactive map.
+                                       Har dialect ka glowing pin
+
+Contribute        /contribute          4-step form: Word submit,
+                                       Story share, Audio record
+                                       in-browser
+
+Dashboard         /dashboard           Impact stats — charts,
+                                       words preserved, graphs
+
+Admin Panel       /admin               Moderation queue:
+                                       Approve / Reject submissions
+
+About             /about               Mission, objectives, team
+
+----------------------------------------------------------------
+5. DATA STRUCTURE
+----------------------------------------------------------------
+
+Hum Mock Data use kar rahe hain (cep-app/src/data/mockData.ts).
+Real project me Supabase ya Firebase connect hoga.
+
+Types defined in: cep-app/src/types/index.ts
+
+Language {
+  id, name, nativeName, region, state
+  speakers (total count), status
+  coordinates [lat, lng]  <- map ke liye
+  wordCount, storyCount, audioCount
+}
+
+Word {
+  id, word, meaning, pronunciation (IPA format)
+  language, partOfSpeech, exampleSentence, verified
+}
+
+Story {
+  id, title, language, content, englishTranslation
+  category, readingTime, narrator, verified
+}
+
+AudioRecording {
+  id, title, description, duration
+  language, region, speaker, category, playCount
+}
+
+----------------------------------------------------------------
+6. FOLDER STRUCTURE
+----------------------------------------------------------------
+
+cep/
+├── docs/                    <- Documentation files
+│   ├── PRD.md               (Product Requirements)
+│   ├── ARCHITECTURE.md      (System design)
+│   ├── DESIGN.md            (Design system guide)
+│   ├── RULES.md             (Coding conventions)
+│   ├── TASKS.md             (Roadmap & tasks)
+│   └── MEMORY.md            (Technical decisions log)
+│
+└── cep-app/                 <- React Frontend App
+    ├── index.html           <- Entry HTML
+    └── src/
+        ├── App.tsx          <- Main routing
+        ├── index.css        <- Global styles
+        ├── main.tsx         <- Bootstrap
+        │
+        ├── components/      <- Reusable UI pieces
+        │   ├── Navbar.tsx
+        │   ├── Layout.tsx   (Footer + Toast)
+        │   ├── LanguageCard.tsx
+        │   ├── StoryCard.tsx
+        │   ├── AudioCard.tsx
+        │   └── WordCard.tsx
+        │
+        ├── pages/           <- One file per page/route
+        │   ├── HomePage.tsx
+        │   ├── ExplorePage.tsx
+        │   ├── LanguageDetailPage.tsx
+        │   ├── AudioArchivePage.tsx
+        │   ├── StoriesPage.tsx
+        │   ├── StoryDetailPage.tsx
+        │   ├── WordSearchPage.tsx
+        │   ├── LanguageMapPage.tsx
+        │   ├── ContributePage.tsx
+        │   ├── DashboardPage.tsx
+        │   ├── AboutPage.tsx
+        │   └── AdminPage.tsx
+        │
+        ├── context/
+        │   └── AppContext.tsx   <- Global state provider
+        │
+        ├── data/
+        │   └── mockData.ts     <- All languages, words, stories
+        │
+        └── types/
+            └── index.ts        <- TypeScript interfaces
+
+----------------------------------------------------------------
+7. DESIGN SYSTEM
+----------------------------------------------------------------
+
+Theme     : "Cyber-Heritage Dark"
+Concept   : Ancient cultural preservation + Modern digital tech
+
+Main Colors:
+  Deep Cosmic Slate  : #080C14  <- Body background
+  Dark Surface       : #0F172A  <- Cards & panels
+  Emerald Green      : #10B981  <- Primary brand color
+  Neon Cyan          : #06B6D4  <- Audio waveform glow
+  Saffron Gold       : #F59E0B  <- Heritage badges
+  Ritual Violet      : #8B5CF6  <- Folklore category
+
+Fonts:
+  Outfit              : Headings — modern, geometric
+  Plus Jakarta Sans   : Body text — clean & readable
+  Noto Sans Devanagari: For Devanagari script text
+
+Special Effects:
+  Glassmorphism   : Frosted glass cards (backdrop-blur)
+  Glow Effects    : Green/Cyan shadows on hover
+  Waveform Anim   : Audio bars that bounce when playing
+  Marquee Ticker  : Scrolling language names strip
+  Cosmic Rings    : Rotating visual on hero section
+
+----------------------------------------------------------------
+8. LANGUAGES COVERED
+----------------------------------------------------------------
+
+Name          Native Name    Status
+-----------   -----------    ----------
+Marathi       maraThee       Thriving
+Malvani       maalvaNee      Vulnerable
+Varhadi       varhaaDee      Vulnerable
+Warli         vaarlee        Endangered
+Konkani       koNkanee       Vulnerable
+Ahirani       ahiraaNee      Endangered
+Bhili         bheelee        Endangered
+
+Total in app: 14 Languages, 31 Dialects
+
+----------------------------------------------------------------
+9. IMPACT STATS (HOME + DASHBOARD PE DIKHTE HAIN)
+----------------------------------------------------------------
+
+14        Languages Documented
+31        Dialects Recorded
+4,218+    Words Collected
+616       Stories Preserved
+1,423+    Audio Tracks Archived
+87+       Active Contributors
+
+----------------------------------------------------------------
+10. HOW TO RUN
+----------------------------------------------------------------
+
+Requirements: Node.js (v18+), npm
+
+Commands:
+  cd "d:\Coding\My project\cep\cep-app"
+  npm install       <- pehli baar
+  npm run dev       <- dev server start
+
+Browser Links:
+  Local   : http://localhost:5173/
+  Network : http://10.240.168.236:5173/
+
+Production Build:
+  npm run build     <- dist/ folder me optimized build
+
+----------------------------------------------------------------
+11. VIVA Q & A — EXPECTED QUESTIONS
+----------------------------------------------------------------
+
+Q: Aapka project kya hai?
+A: BhashaSetu ek web-based digital archive hai jo Maharashtra ki
+   endangered regional languages ko preserve karta hai. Isme
+   words, stories, audio recordings, interactive map, aur
+   community contribution system hai.
+
+Q: Kon si technology use ki?
+A: React 19 + TypeScript (frontend), Tailwind CSS (styling),
+   Vite (build tool), Leaflet (map), Framer Motion (animations),
+   Recharts (charts), React Context API (state management).
+
+Q: Database kya hai?
+A: Abhi mock data file (mockData.ts) use kar rahe hain —
+   prototype phase hai. Production me Supabase (PostgreSQL) ya
+   Firebase integrate karenge.
+
+Q: Kya innovative hai is project me?
+A: 1) In-browser voice recording — koi app install ki zaroorat
+      nahi.
+   2) Dual-language story reader — original + English saath.
+   3) Animated audio waveform visualizer.
+   4) Community contribution + admin moderation pipeline.
+   5) Geo-linguistic map with dialect location pins.
+
+Q: Endangered language preserve kyun?
+A: UNESCO ke mutabiq jab language marti hai, uske saath culture,
+   folklore, ecological knowledge sab khatam hota hai. Digital
+   archiving ek long-term sustainable solution hai.
+
+Q: App responsive hai?
+A: Haan — Tailwind CSS breakpoints use kiye (sm, md, lg).
+   Mobile 360px se desktop 4K tak kaam karta hai.
+   Mobile me hamburger menu hai.
+
+Q: TypeScript kyun?
+A: Compile time pe bugs pakad me aati hain — runtime errors
+   kam hote hain. Component props clearly typed hote hain.
+   Team collaboration me helpful hota hai.
+
+Q: Security kaise handle ki?
+A: Submissions directly publish nahi hoti — admin moderation
+   queue se jaati hain. Future me JWT authentication add hoga.
+
+Q: SPA kya hota hai?
+A: Single Page Application — ek hi HTML page load hoti hai,
+   aur React Router se pages switch hote hain bina full reload
+   ke. Fast aur smooth feel deta hai.
+
+Q: Vite kyun use kiya Next.js ki jagah?
+A: Audio playback aur Leaflet maps purely client-side hain,
+   SSR ki zaroorat nahi thi. Vite ka HMR (Hot Module Replace)
+   development me bahut fast hota hai.
+
+----------------------------------------------------------------
+        BEST OF LUCK FOR YOUR VIVA! YOU GOT THIS!
+================================================================
