@@ -484,7 +484,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-10-10',
     verified: true,
     plays: 234,
-    audioUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/40/Hindustani-vocal-music-example.ogg',
+    audioUrl: '/audio/a1_fishermans_call.wav',
   },
   {
     id: 'a2',
@@ -501,7 +501,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-08-25',
     verified: true,
     plays: 412,
-    audioUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Kuchipudi_Dance_Music.ogg',
+    audioUrl: '/audio/a2_tarpa_chant.wav',
   },
   {
     id: 'a3',
@@ -518,7 +518,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-11-05',
     verified: true,
     plays: 189,
-    audioUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Lavani.ogg',
+    audioUrl: '/audio/a3_harvest_ovi.wav',
   },
   {
     id: 'a4',
@@ -535,7 +535,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-09-14',
     verified: true,
     plays: 867,
-    audioUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Abhangs_of_Tukaram.ogg',
+    audioUrl: '/audio/a4_abhang.wav',
   },
   {
     id: 'a5',
@@ -552,7 +552,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-07-19',
     verified: false,
     plays: 67,
-    audioUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Adivasi_music.ogg',
+    audioUrl: '/audio/a5_wedding_song.wav',
   },
   {
     id: 'a6',
@@ -569,7 +569,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-10-28',
     verified: true,
     plays: 143,
-    audioUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Goa_folk_song.ogg',
+    audioUrl: '/audio/a6_boat_prayers.wav',
   },
   {
     id: 'a7',
@@ -586,7 +586,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-12-02',
     verified: false,
     plays: 45,
-    audioUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Khandeshi_folk.ogg',
+    audioUrl: '/audio/a7_grain_song.wav',
   },
 ];
 
