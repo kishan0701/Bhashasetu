@@ -45,6 +45,7 @@ interface AudioCardProps {
 }
 
 export const AudioCard: React.FC<AudioCardProps> = ({ recording, compact = false }) => {
+  // Use a real <audio> DOM element ref for maximum browser compatibility
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -52,8 +53,6 @@ export const AudioCard: React.FC<AudioCardProps> = ({ recording, compact = false
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(recording.duration);
-  const [hasAudioSrc, setHasAudioSrc] = useState(false);
-  const [error, setError] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const waveBars = useMemo(() => generateWave(recording.id, 32), [recording.id]);
@@ -69,46 +68,10 @@ export const AudioCard: React.FC<AudioCardProps> = ({ recording, compact = false
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const audioUrl = (recording as any).audioUrl as string | undefined;
+  const audioUrl = recording.audioUrl;
+  const hasAudio = Boolean(audioUrl);
 
-  useEffect(() => {
-    if (audioUrl) {
-      setHasAudioSrc(true);
-      const audio = new Audio(audioUrl);
-      audio.preload = 'metadata';
-      audioRef.current = audio;
-
-      audio.addEventListener('loadedmetadata', () => {
-        if (audio.duration && !isNaN(audio.duration) && audio.duration > 0) {
-          setDuration(audio.duration);
-        }
-      });
-
-      audio.addEventListener('timeupdate', () => {
-        if (audio.duration > 0) {
-          setProgress((audio.currentTime / audio.duration) * 100);
-          setCurrentTime(audio.currentTime);
-        }
-      });
-
-      audio.addEventListener('ended', () => {
-        setIsPlaying(false);
-        setProgress(0);
-        setCurrentTime(0);
-      });
-
-      audio.addEventListener('error', () => {
-        setError(true);
-        setHasAudioSrc(false);
-      });
-
-      return () => {
-        audio.pause();
-        audio.src = '';
-      };
-    }
-  }, [audioUrl]);
-
+  // Simulation fallback (for cards without audio)
   const startSimulation = () => {
     setIsPlaying(true);
     intervalRef.current = setInterval(() => {
@@ -128,21 +91,30 @@ export const AudioCard: React.FC<AudioCardProps> = ({ recording, compact = false
   };
 
   const handlePlay = () => {
-    if (hasAudioSrc && audioRef.current && !error) {
+    const audio = audioRef.current;
+
+    if (hasAudio && audio) {
       if (isPlaying) {
-        audioRef.current.pause();
+        audio.pause();
         setIsPlaying(false);
       } else {
-        audioRef.current.muted = isMuted;
-        audioRef.current.playbackRate = playbackSpeed;
-        audioRef.current.play().then(() => {
-          setIsPlaying(true);
-        }).catch(() => {
-          setError(true);
-          startSimulation();
-        });
+        audio.muted = isMuted;
+        audio.playbackRate = playbackSpeed;
+        // play() returns a Promise — critical for mobile
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              setIsPlaying(true);
+            })
+            .catch(_err => {
+              // Autoplay blocked or error — fall back to simulation
+              startSimulation();
+            });
+        }
       }
     } else {
+      // No audio source — use visual simulation
       if (isPlaying) {
         if (intervalRef.current) clearInterval(intervalRef.current);
         setIsPlaying(false);
@@ -158,7 +130,7 @@ export const AudioCard: React.FC<AudioCardProps> = ({ recording, compact = false
     setProgress(clamped * 100);
     setCurrentTime(targetTime);
 
-    if (audioRef.current && hasAudioSrc && !error) {
+    if (audioRef.current && hasAudio) {
       audioRef.current.currentTime = targetTime;
     }
   };
@@ -190,9 +162,12 @@ export const AudioCard: React.FC<AudioCardProps> = ({ recording, compact = false
     if (audioRef.current) audioRef.current.playbackRate = nextSpeed;
   };
 
+  // Cleanup on unmount
   useEffect(() => () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
-    if (audioRef.current) audioRef.current.pause();
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
   }, []);
 
   return (
@@ -203,6 +178,36 @@ export const AudioCard: React.FC<AudioCardProps> = ({ recording, compact = false
           : 'bg-[#0A0F1D]/80 border-slate-800/80 hover:border-slate-700 hover:bg-[#0C1324]'
       }`}
     >
+      {/* Hidden <audio> element — THE key fix for mobile/browser compatibility */}
+      {hasAudio && (
+        <audio
+          ref={audioRef}
+          src={audioUrl}
+          preload="metadata"
+          onLoadedMetadata={() => {
+            const audio = audioRef.current;
+            if (audio && audio.duration && !isNaN(audio.duration) && audio.duration > 0) {
+              setDuration(audio.duration);
+            }
+          }}
+          onTimeUpdate={() => {
+            const audio = audioRef.current;
+            if (audio && audio.duration > 0) {
+              setProgress((audio.currentTime / audio.duration) * 100);
+              setCurrentTime(audio.currentTime);
+            }
+          }}
+          onEnded={() => {
+            setIsPlaying(false);
+            setProgress(0);
+            setCurrentTime(0);
+          }}
+          onError={() => {
+            setIsPlaying(false);
+          }}
+        />
+      )}
+
       {/* Top Header Row: Dialect Pill, Category, Duration */}
       <div className="flex items-center justify-between gap-2 mb-3">
         <div className="flex items-center gap-2">
