@@ -64,6 +64,41 @@
 
 ---
 
+### ADR-006: Redundant Home Navigation Link
+- **Date:** 2026-10
+- **Context:** Users clicking deep links like "Explore Languages" or "Sample Oral Archive" struggled to navigate back to the landing page on mobile and desktop without relying solely on the top-left logo.
+- **Decision:** Added explicit "Home" navigation links across 3 locations:
+  1. Desktop Navbar as the first link with `House` icon.
+  2. Mobile Navigation Drawer pinned at the top.
+  3. Universal Footer under the "Explore" link column.
+- **Rationale:** Reduces cognitive load and ensures users can return to the initial site experience from anywhere.
+
+---
+
+### ADR-007: Unicode Encoding Integrity & Mojibake Prevention
+- **Date:** 2026-10
+- **Context:** PowerShell file updates using default ANSI/Windows-1252 encoding corrupted UTF-8 multi-byte characters in `mockData.ts` into mojibake (`ðŸŒ¿`, `à¤®à¤°à¤¾à¤ à¥€`, `â€”`).
+- **Decision:** All automated and programmatic file modifications to data files must strictly enforce `utf-8` encoding. Restored all Devanagari native names, dialect icons, and em-dashes.
+- **Rationale:** Cultural dignity and accurate vernacular representation require absolute typographical precision.
+
+---
+
+### ADR-008: Single-Row Responsive Layout for Archive Filter Controls
+- **Date:** 2026-10
+- **Context:** On `/explore`, Category and Status dropdown filters were wrapping into two vertical lines due to `flex-wrap` and default select width, occupying excessive vertical space.
+- **Decision:** Updated filter container to use `flex-nowrap` with `w-auto shrink-0` on desktop and balanced `flex-1 sm:flex-initial` on mobile.
+- **Rationale:** Maximizes screen real estate for dialect cards while maintaining a clean, cohesive filter toolbar across mobile, tablet, and widescreen viewports.
+
+---
+
+### ADR-009: Musical Heritage Audio Selection
+- **Date:** 2026-10
+- **Context:** Landing page "Sample Oral Archive" hero button initially used flat short audio clips.
+- **Decision:** Upgraded hero player to use Tukaram Abhang recitation (`a4_abhang.mp3`, 312 seconds) with authentic devotional/musical rhythm ("विठ्ठल विठ्ठल गजर करा...").
+- **Rationale:** Demonstrates the living vibrancy of Maharashtra's oral traditions immediately upon initial user interaction.
+
+---
+
 ## 3. Current Technical State
 
 - **Node Version:** `v24.20.0`

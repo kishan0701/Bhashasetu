@@ -95,6 +95,11 @@ Loaded via Google Fonts:
 - **Markers:** Custom colored Leaflet marker pins reflecting dialect vulnerability.
 - **Popup:** Quick-view snapshot of language statistics with a 1-click button to view the full dossier.
 
+### 4.5. Filter Toolbars & Responsive Controls (`ExplorePage.tsx`)
+- **Horizontal Scrollable Pills:** Region filter tags utilize `overflow-x-auto no-scrollbar` for fluid swipe gestures without wrapping.
+- **Single-Line Secondary Selects:** Category and status dropdowns use `flex-nowrap`, keeping controls aligned in 1 single row (`flex-1` on mobile, `w-auto shrink-0` on desktop) to eliminate vertical space waste.
+- **Reset Trigger:** High-contrast rose pill button (`RotateCcw`) that seamlessly attaches to the filter row when filters are active.
+
 ---
 
 ## 5. Layout & Spacing Principles

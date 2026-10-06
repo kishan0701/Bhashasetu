@@ -76,16 +76,16 @@ cep/
         │   └── AppContext.tsx# React Context for search, toast, contributions, moderation
         │
         ├── components/       # 🧩 Reusable Presentation Components
-        │   ├── Navbar.tsx    # Responsive header with search bar & navigation drawer
-        │   ├── Layout.tsx    # Toast notifications and universal footer
-        │   ├── LanguageCard.tsx # Visual cards displaying language summary & speaker count
+        │   ├── Navbar.tsx    # Responsive header with Home link, search bar & navigation drawer
+        │   ├── Layout.tsx    # Toast notifications and universal footer with Home return links
+        │   ├── LanguageCard.tsx # Visual cards displaying language summary, icons, and native names
         │   ├── WordCard.tsx  # Vocabulary cards with pronunciation and meaning
         │   ├── StoryCard.tsx # Folklore cards with reading time and cultural context
         │   └── AudioCard.tsx # Audio clip player with simulated waveform visualization
         │
         └── pages/            # 📄 Route Pages (12 Complete Views)
-            ├── HomePage.tsx            # Hero section, impact statistics, featured dialects
-            ├── ExplorePage.tsx         # Filterable catalog of all archived languages
+            ├── HomePage.tsx            # Hero section with Tukaram Abhang audio, impact stats, featured dialects
+            ├── ExplorePage.tsx         # Filterable catalog with single-line responsive category/status filters
             ├── LanguageDetailPage.tsx  # Deep dossier with tabs for Words, Phrases, Stories
             ├── AudioArchivePage.tsx    # Audio hub with category & dialect audio filters
             ├── StoriesPage.tsx         # Oral narratives archive with category filters

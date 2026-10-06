@@ -42,6 +42,10 @@ export const StoryCard = (props: any) => { ... };
 - **Functional Components Only**: Use React 19 functional components with standard hooks (`useState`, `useEffect`, `useCallback`, `useMemo`, `useContext`).
 - **Hook Dependencies**: Always list all required variables in hook dependency arrays. Never disable eslint exhaustive-deps unless strictly justified.
 
+### 2.3. UTF-8 Encoding & Multi-Script Integrity
+- **Strict UTF-8 Writes**: All data files containing Devanagari script, Indic phonetics, or Unicode icons (`mockData.ts`, etc.) must strictly be written in UTF-8 without BOM.
+- **No Unencoded Shell Redirection**: Avoid Windows PowerShell default output redirection (`>` or `Set-Content` without `-Encoding utf8`), as it defaults to Windows-1252/ANSI and corrupts Indic scripts into mojibake.
+
 ---
 
 ## 3. Styling & Design Standards
