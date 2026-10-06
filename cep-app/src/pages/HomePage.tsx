@@ -86,10 +86,10 @@ const HomePage: React.FC = () => {
   }, [homeAudioFilter]);
 
   useEffect(() => {
-    // Hero sample audio — local Varhadi Harvest Ovi folk song
-    heroAudioRef.current = new Audio('/audio/a3_harvest_ovi.mp3');
+    // Hero sample audio — Tukaram Abhang (most musical TTS audio)
+    heroAudioRef.current = new Audio('/audio/a4_abhang.mp3');
     heroAudioRef.current.loop = false;
-    heroAudioRef.current.volume = 0.85;
+    heroAudioRef.current.volume = 0.90;
     heroAudioRef.current.addEventListener('ended', () => setPlaying(false));
     heroAudioRef.current.addEventListener('error', () => setPlaying(false));
     return () => {
@@ -257,7 +257,7 @@ const HomePage: React.FC = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold text-white group-hover:text-emerald-300 transition-colors">Sample Oral Archive</p>
-                  <p className="text-[12px] text-slate-400 mt-0.5 font-medium">Lavani Folk Song · Maharashtra</p>
+                  <p className="text-[12px] text-slate-400 mt-0.5 font-medium">Abhang Recitation · Maharashtra</p>
                 </div>
                 {playing && (
                   <div className="flex items-end gap-[3px] h-6 ml-auto shrink-0">
