@@ -68,8 +68,9 @@ export const AudioCard: React.FC<AudioCardProps> = ({ recording, compact = false
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const audioUrl = recording.audioUrl;
+  const audioUrl = recording.audioUrl || '';
   const hasAudio = Boolean(audioUrl);
+  const [audioLoadFailed, setAudioLoadFailed] = useState(false);
 
   // Simulation fallback (for cards without audio)
   const startSimulation = () => {
@@ -93,28 +94,37 @@ export const AudioCard: React.FC<AudioCardProps> = ({ recording, compact = false
   const handlePlay = () => {
     const audio = audioRef.current;
 
-    if (hasAudio && audio) {
+    if (hasAudio && audio && !audioLoadFailed) {
       if (isPlaying) {
         audio.pause();
         setIsPlaying(false);
       } else {
         audio.muted = isMuted;
         audio.playbackRate = playbackSpeed;
-        // play() returns a Promise — critical for mobile
+        // If audio is not loaded yet, force load (important for desktop)
+        if (audio.readyState === 0) {
+          audio.load();
+        }
         const playPromise = audio.play();
         if (playPromise !== undefined) {
           playPromise
             .then(() => {
               setIsPlaying(true);
             })
-            .catch(_err => {
-              // Autoplay blocked or error — fall back to simulation
-              startSimulation();
+            .catch(err => {
+              console.warn('Audio play failed:', err);
+              // Only fall back to simulation if it's a NotSupportedError (broken file)
+              // NotAllowedError means user hasn't interacted — retry on next click
+              if (err.name === 'NotSupportedError') {
+                setAudioLoadFailed(true);
+                startSimulation();
+              }
+              // For NotAllowedError, do nothing — next user click will work
             });
         }
       }
     } else {
-      // No audio source — use visual simulation
+      // No audio source or load failed — use visual simulation
       if (isPlaying) {
         if (intervalRef.current) clearInterval(intervalRef.current);
         setIsPlaying(false);
@@ -178,7 +188,7 @@ export const AudioCard: React.FC<AudioCardProps> = ({ recording, compact = false
           : 'bg-[#0A0F1D]/80 border-slate-800/80 hover:border-slate-700 hover:bg-[#0C1324]'
       }`}
     >
-      {/* Hidden <audio> element — THE key fix for mobile/browser compatibility */}
+      {/* Hidden native <audio> element — always rendered so desktop can interact */}
       {hasAudio && (
         <audio
           ref={audioRef}
@@ -202,8 +212,13 @@ export const AudioCard: React.FC<AudioCardProps> = ({ recording, compact = false
             setProgress(0);
             setCurrentTime(0);
           }}
-          onError={() => {
-            setIsPlaying(false);
+          onError={(e) => {
+            // Only mark as failed for actual network/decode errors, not premature fires
+            const target = e.currentTarget;
+            if (target.error && target.error.code !== MediaError.MEDIA_ERR_ABORTED) {
+              setIsPlaying(false);
+              setAudioLoadFailed(true);
+            }
           }}
         />
       )}

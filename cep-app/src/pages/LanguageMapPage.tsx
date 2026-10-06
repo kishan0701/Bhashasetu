@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Compass, Volume2, Mic, Sparkles,
@@ -364,19 +364,57 @@ export const LanguageMapPage: React.FC = () => {
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const voicesRef = useRef<SpeechSynthesisVoice[]>([]);
+
+  // Pre-load voices on mount (Chrome loads them async)
+  useEffect(() => {
+    const loadVoices = () => {
+      const v = window.speechSynthesis?.getVoices() || [];
+      if (v.length > 0) voicesRef.current = v;
+    };
+    loadVoices();
+    window.speechSynthesis?.addEventListener?.('voiceschanged', loadVoices);
+    return () => window.speechSynthesis?.removeEventListener?.('voiceschanged', loadVoices);
+  }, []);
 
   // Play audio pronunciation of the dialect phrase
   const handlePlayAudio = (phrase: string) => {
-    if ('speechSynthesis' in window) {
-      setIsPlayingAudio(true);
-      window.speechSynthesis.cancel();
+    if (!('speechSynthesis' in window)) return;
+
+    // Stop any current speech
+    window.speechSynthesis.cancel();
+    setIsPlayingAudio(false);
+
+    const doSpeak = () => {
+      const voices = voicesRef.current.length > 0
+        ? voicesRef.current
+        : window.speechSynthesis.getVoices();
+
       const utterance = new SpeechSynthesisUtterance(phrase);
-      utterance.lang = 'mr-IN';
-      utterance.rate = 0.88;
-      utterance.onend = () => setIsPlayingAudio(false);
+
+      // Priority: mr-IN → hi-IN → hi-* → en-IN → any
+      const preferred =
+        voices.find(v => v.lang === 'mr-IN') ||
+        voices.find(v => v.lang === 'hi-IN') ||
+        voices.find(v => v.lang.startsWith('hi')) ||
+        voices.find(v => v.lang === 'en-IN') ||
+        voices.find(v => v.lang.startsWith('en')) ||
+        null;
+
+      if (preferred) utterance.voice = preferred;
+      utterance.lang = preferred?.lang ?? 'hi-IN';
+      utterance.rate = 0.80;
+      utterance.pitch = 1;
+      utterance.volume = 1;
+      utterance.onstart = () => setIsPlayingAudio(true);
+      utterance.onend   = () => setIsPlayingAudio(false);
       utterance.onerror = () => setIsPlayingAudio(false);
       window.speechSynthesis.speak(utterance);
-    }
+      setIsPlayingAudio(true);
+    };
+
+    // Chrome REQUIRES a small delay after cancel() before speak() — otherwise silent
+    setTimeout(doSpeak, 120);
   };
 
   const filteredPins = activeFilter === 'all'

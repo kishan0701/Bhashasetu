@@ -484,7 +484,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-10-10',
     verified: true,
     plays: 234,
-    audioUrl: '/audio/a1_fishermans_call.wav',
+    audioUrl: '/audio/a1_fishermans_call.mp3',
   },
   {
     id: 'a2',
@@ -501,7 +501,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-08-25',
     verified: true,
     plays: 412,
-    audioUrl: '/audio/a2_tarpa_chant.wav',
+    audioUrl: '/audio/a2_tarpa_chant.mp3',
   },
   {
     id: 'a3',
@@ -518,7 +518,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-11-05',
     verified: true,
     plays: 189,
-    audioUrl: '/audio/a3_harvest_ovi.wav',
+    audioUrl: '/audio/a3_harvest_ovi.mp3',
   },
   {
     id: 'a4',
@@ -535,7 +535,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-09-14',
     verified: true,
     plays: 867,
-    audioUrl: '/audio/a4_abhang.wav',
+    audioUrl: '/audio/a4_abhang.mp3',
   },
   {
     id: 'a5',
@@ -552,7 +552,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-07-19',
     verified: false,
     plays: 67,
-    audioUrl: '/audio/a5_wedding_song.wav',
+    audioUrl: '/audio/a5_wedding_song.mp3',
   },
   {
     id: 'a6',
@@ -569,7 +569,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-10-28',
     verified: true,
     plays: 143,
-    audioUrl: '/audio/a6_boat_prayers.wav',
+    audioUrl: '/audio/a6_boat_prayers.mp3',
   },
   {
     id: 'a7',
@@ -586,7 +586,7 @@ export const audioRecordings: AudioRecording[] = [
     dateRecorded: '2025-12-02',
     verified: false,
     plays: 45,
-    audioUrl: '/audio/a7_grain_song.wav',
+    audioUrl: '/audio/a7_grain_song.mp3',
   },
 ];
 
