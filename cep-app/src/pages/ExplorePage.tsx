@@ -119,12 +119,12 @@ const ExplorePage: React.FC = () => {
             ))}
           </div>
 
-          {/* Secondary Controls: Category, Status & Reset */}
-          <div className="flex items-center gap-2.5 shrink-0 self-end md:self-auto flex-wrap">
+          {/* Secondary Controls: Category, Status & Reset — ALWAYS in 1 single line across all screens */}
+          <div className="flex items-center gap-2 w-full sm:w-auto shrink-0 flex-nowrap overflow-x-auto no-scrollbar">
             <select
               value={category}
               onChange={e => setCategory(e.target.value)}
-              className="px-3 py-1.5 bg-slate-900/90 border border-slate-800 rounded-xl text-xs font-medium text-slate-200 focus:border-emerald-500 focus:outline-none cursor-pointer"
+              className="flex-1 sm:flex-initial px-3 py-1.5 bg-slate-900/90 border border-slate-800 rounded-xl text-xs font-medium text-slate-200 focus:border-emerald-500 focus:outline-none cursor-pointer shrink-0 w-auto"
             >
               {categories.map(c => (
                 <option key={c} value={c}>{c === 'All' ? 'All Categories' : c}</option>
@@ -134,7 +134,7 @@ const ExplorePage: React.FC = () => {
             <select
               value={status}
               onChange={e => setStatus(e.target.value)}
-              className="px-3 py-1.5 bg-slate-900/90 border border-slate-800 rounded-xl text-xs font-medium text-slate-200 focus:border-emerald-500 focus:outline-none cursor-pointer"
+              className="flex-1 sm:flex-initial px-3 py-1.5 bg-slate-900/90 border border-slate-800 rounded-xl text-xs font-medium text-slate-200 focus:border-emerald-500 focus:outline-none cursor-pointer shrink-0 w-auto"
             >
               {statuses.map(s => (
                 <option key={s} value={s}>{s}</option>
@@ -144,7 +144,7 @@ const ExplorePage: React.FC = () => {
             {hasFilters && (
               <button
                 onClick={clearAll}
-                className="px-3 py-1.5 text-xs font-semibold text-rose-300 hover:text-white bg-rose-500/10 hover:bg-rose-500 border border-rose-500/25 rounded-xl transition-all cursor-pointer flex items-center gap-1"
+                className="px-3 py-1.5 text-xs font-semibold text-rose-300 hover:text-white bg-rose-500/10 hover:bg-rose-500 border border-rose-500/25 rounded-xl transition-all cursor-pointer flex items-center gap-1 shrink-0 whitespace-nowrap"
                 title="Reset all filters"
               >
                 <RotateCcw size={12} />
