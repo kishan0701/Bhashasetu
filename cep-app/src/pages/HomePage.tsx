@@ -86,23 +86,29 @@ const HomePage: React.FC = () => {
   }, [homeAudioFilter]);
 
   useEffect(() => {
-    // Hero sample audio — a short public domain Indian flute sample
-    heroAudioRef.current = new Audio('https://upload.wikimedia.org/wikipedia/commons/c/c2/Lavani.ogg');
+    // Hero sample audio — local Varhadi Harvest Ovi folk song
+    heroAudioRef.current = new Audio('/audio/a3_harvest_ovi.mp3');
     heroAudioRef.current.loop = false;
+    heroAudioRef.current.volume = 0.85;
     heroAudioRef.current.addEventListener('ended', () => setPlaying(false));
+    heroAudioRef.current.addEventListener('error', () => setPlaying(false));
     return () => {
       heroAudioRef.current?.pause();
     };
   }, []);
 
   const toggleHeroAudio = () => {
-    if (!heroAudioRef.current) return;
+    const audio = heroAudioRef.current;
+    if (!audio) return;
     if (playing) {
-      heroAudioRef.current.pause();
+      audio.pause();
       setPlaying(false);
     } else {
-      heroAudioRef.current.play().catch(() => setPlaying(true)); // fallback visual if blocked
-      setPlaying(true);
+      // Force reload if ended or not started
+      if (audio.ended || audio.readyState === 0) audio.load();
+      audio.play()
+        .then(() => setPlaying(true))
+        .catch(() => setPlaying(false));
     }
   };
 
@@ -330,7 +336,7 @@ const HomePage: React.FC = () => {
                 >
                   <div className="flex items-center gap-2">
                     <Users size={13} className="text-indigo-400" />
-                    <p className="text-[10px] text-indigo-300 font-bold">842 Contributors</p>
+                    <p className="text-[10px] text-indigo-300 font-bold">38 Contributors</p>
                   </div>
                 </motion.div>
               </div>
@@ -633,7 +639,7 @@ const HomePage: React.FC = () => {
 
             {/* Trust stats row */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '48px', marginTop: '56px', paddingTop: '40px', borderTop: '1px solid rgba(255,255,255,0.07)', flexWrap: 'wrap' }}>
-              {[{val:'4,218', lbl:'Words Archived'},{val:'842', lbl:'Contributors'},{val:'14', lbl:'Dialects Saved'}].map(s => (
+              {[{val:'312', lbl:'Words Archived'},{val:'38', lbl:'Contributors'},{val:'7', lbl:'Dialects Saved'}].map(s => (
                 <div key={s.lbl} style={{ textAlign: 'center' }}>
                   <div style={{ fontSize: '26px', fontWeight: 800, color: '#fff', marginBottom: '4px' }}>{s.val}</div>
                   <div style={{ fontSize: '12px', color: '#64748b', letterSpacing: '0.05em' }}>{s.lbl}</div>

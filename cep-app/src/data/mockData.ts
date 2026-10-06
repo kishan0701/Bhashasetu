@@ -1,4 +1,4 @@
-import type { Language, Word, Phrase, Story, AudioRecording, Contributor, PendingContribution } from '../types';
+﻿import type { Language, Word, Phrase, Story, AudioRecording, Contributor, PendingContribution } from '../types';
 
 // ============================================================
 // LANGUAGES & DIALECTS
@@ -7,15 +7,15 @@ export const languages: Language[] = [
   {
     id: 'marathi',
     name: 'Marathi',
-    nativeName: 'मराठी',
+    nativeName: 'à¤®à¤°à¤¾à¤ à¥€',
     region: 'Maharashtra',
     state: 'Maharashtra',
     community: 'Marathis',
     speakers: 83000000,
-    wordCount: 1247,
-    phraseCount: 384,
-    storyCount: 156,
-    audioCount: 423,
+    wordCount: 87,
+    phraseCount: 24,
+    storyCount: 6,
+    audioCount: 12,
     description: 'The primary language of Maharashtra, with rich literary and cultural traditions dating back centuries.',
     longDescription: 'Marathi is an Indo-Aryan language spoken predominantly in the Indian state of Maharashtra. It is one of the 22 scheduled languages of India and the official language of Maharashtra and Goa. Marathi has a rich literary tradition dating back to the 13th century, with significant contributions from saints like Dnyaneshwar, Eknath, Tukaram, and Namdev.',
     linguisticBackground: 'Indo-Aryan language family, closely related to Sanskrit. Written in Devanagari script.',
@@ -23,7 +23,7 @@ export const languages: Language[] = [
     category: 'language',
     color: '#0D6E6E',
     gradient: 'from-teal-600 to-teal-800',
-    icon: '🌿',
+    icon: 'ðŸŒ¿',
     tags: ['Indo-Aryan', 'Devanagari', 'Official Language'],
     coordinates: [19.7515, 75.7139],
     contributors: 342,
@@ -32,15 +32,15 @@ export const languages: Language[] = [
   {
     id: 'malvani',
     name: 'Malvani',
-    nativeName: 'मालवणी',
+    nativeName: 'à¤®à¤¾à¤²à¤µà¤£à¥€',
     region: 'Konkan Coast',
     state: 'Maharashtra / Goa',
     community: 'Malvani Community',
     speakers: 500000,
-    wordCount: 634,
-    phraseCount: 187,
-    storyCount: 89,
-    audioCount: 201,
+    wordCount: 54,
+    phraseCount: 17,
+    storyCount: 4,
+    audioCount: 9,
     description: 'A vibrant coastal dialect from the Sindhudurg district, blending Marathi, Konkani and Goan influences.',
     longDescription: 'Malvani is a dialect or a variety spoken primarily in the Malvan and surrounding Sindhudurg district of coastal Maharashtra. It carries the warmth of the Konkan coast and reflects the seafaring, agricultural and fishing communities that have shaped its vocabulary. The dialect has unique phonological features and a rich repertoire of folk songs (Ovi), proverbs and oral stories.',
     linguisticBackground: 'Konkani-influenced Marathi variety. Shares features with Konkani and Goan dialects. Written informally in Devanagari.',
@@ -48,7 +48,7 @@ export const languages: Language[] = [
     category: 'dialect',
     color: '#1B3A5C',
     gradient: 'from-blue-700 to-blue-900',
-    icon: '🌊',
+    icon: 'ðŸŒŠ',
     tags: ['Konkani-Marathi', 'Coastal', 'Sindhudurg'],
     coordinates: [16.0580, 73.4709],
     contributors: 87,
@@ -57,15 +57,15 @@ export const languages: Language[] = [
   {
     id: 'varhadi',
     name: 'Varhadi',
-    nativeName: 'वऱ्हाडी',
+    nativeName: 'à¤µà¤±à¥à¤¹à¤¾à¤¡à¥€',
     region: 'Vidarbha',
     state: 'Maharashtra',
     community: 'Vidarbha Communities',
     speakers: 1200000,
-    wordCount: 512,
-    phraseCount: 143,
-    storyCount: 72,
-    audioCount: 165,
+    wordCount: 43,
+    phraseCount: 12,
+    storyCount: 3,
+    audioCount: 7,
     description: 'The dialect of the Vidarbha region (Berar), known for its distinctive intonation and agricultural vocabulary.',
     longDescription: 'Varhadi, also known as Varhadhi or Berar dialect, is spoken across the Vidarbha region of Maharashtra, particularly in districts like Amravati, Wardha, Yavatmal and Akola. The dialect is characterized by its unique intonation patterns and a rich vocabulary related to cotton farming, which has historically been the backbone of the Vidarbha economy.',
     linguisticBackground: 'Eastern Marathi variety with Hindi influences. Features a distinctive rising intonation pattern.',
@@ -73,7 +73,7 @@ export const languages: Language[] = [
     category: 'dialect',
     color: '#C87B2A',
     gradient: 'from-amber-600 to-amber-800',
-    icon: '🌾',
+    icon: 'ðŸŒ¾',
     tags: ['Vidarbha', 'Eastern Maharashtra', 'Agricultural'],
     coordinates: [20.9320, 77.7523],
     contributors: 134,
@@ -82,15 +82,15 @@ export const languages: Language[] = [
   {
     id: 'konkani',
     name: 'Konkani',
-    nativeName: 'कोंकणी',
+    nativeName: 'à¤•à¥‹à¤‚à¤•à¤£à¥€',
     region: 'Konkan & Goa',
     state: 'Maharashtra / Goa / Karnataka',
     community: 'Konkani Community',
     speakers: 2400000,
-    wordCount: 789,
-    phraseCount: 231,
-    storyCount: 104,
-    audioCount: 287,
+    wordCount: 61,
+    phraseCount: 19,
+    storyCount: 5,
+    audioCount: 8,
     description: 'An independent Indo-Aryan language spoken along the western coast, officially recognized and preserving ancient maritime culture.',
     longDescription: 'Konkani is an Indo-Aryan language spoken along the Konkan coast of India, primarily in Goa, coastal Karnataka and parts of Maharashtra and Kerala. It is one of the 22 scheduled languages of the Indian Constitution and the official language of Goa. Konkani has multiple dialects and is written in multiple scripts including Devanagari, Roman, Kannada and Nastaliq.',
     linguisticBackground: 'Indo-Aryan language. Can be written in Devanagari, Roman, Kannada, and Nastaliq scripts.',
@@ -98,7 +98,7 @@ export const languages: Language[] = [
     category: 'language',
     color: '#5A7A5A',
     gradient: 'from-green-600 to-green-800',
-    icon: '🌴',
+    icon: 'ðŸŒ´',
     tags: ['Indo-Aryan', 'Multi-script', 'Scheduled Language'],
     coordinates: [15.2993, 74.1240],
     contributors: 198,
@@ -107,15 +107,15 @@ export const languages: Language[] = [
   {
     id: 'ahirani',
     name: 'Ahirani',
-    nativeName: 'अहिराणी',
+    nativeName: 'à¤…à¤¹à¤¿à¤°à¤¾à¤£à¥€',
     region: 'Khandesh',
     state: 'Maharashtra',
     community: 'Khandeshi Communities',
     speakers: 2000000,
-    wordCount: 398,
-    phraseCount: 112,
-    storyCount: 56,
-    audioCount: 143,
+    wordCount: 32,
+    phraseCount: 9,
+    storyCount: 3,
+    audioCount: 5,
     description: 'A dialect of northwestern Maharashtra (Khandesh), linguistically transitioning between Marathi and Gujarati.',
     longDescription: 'Ahirani is spoken in the Khandesh region of Maharashtra, covering the Dhule and Nandurbar districts. It represents a linguistic transition zone between Marathi and Gujarati, showing features of both. The dialect is associated with the Ahir community and reflects a pastoral and agricultural heritage that predates British colonization of the region.',
     linguisticBackground: 'Northwestern Marathi dialect with Gujarati influences. Transition language between Marathi and Gujarati.',
@@ -123,7 +123,7 @@ export const languages: Language[] = [
     category: 'dialect',
     color: '#8B3A2A',
     gradient: 'from-red-700 to-red-900',
-    icon: '🏔️',
+    icon: 'ðŸ”ï¸',
     tags: ['Khandesh', 'Northwestern', 'Marathi-Gujarati'],
     coordinates: [21.0000, 74.7749],
     contributors: 63,
@@ -132,15 +132,15 @@ export const languages: Language[] = [
   {
     id: 'warli',
     name: 'Warli',
-    nativeName: 'वारली',
+    nativeName: 'à¤µà¤¾à¤°à¤²à¥€',
     region: 'Palghar & Thane',
     state: 'Maharashtra',
     community: 'Warli Adivasi Community',
     speakers: 300000,
-    wordCount: 287,
-    phraseCount: 94,
-    storyCount: 78,
-    audioCount: 112,
+    wordCount: 21,
+    phraseCount: 7,
+    storyCount: 4,
+    audioCount: 4,
     description: 'The language of the Warli tribal community, closely tied to their iconic folk art, rituals and forest heritage.',
     longDescription: 'Warli is a tribal language spoken by the Warli people of the Palghar and Thane districts of Maharashtra. The language is deeply intertwined with the community\'s iconic geometric folk art, their animistic beliefs, agricultural cycles, and forest knowledge. Warli is primarily an oral language and carries extensive ecological and ritual vocabulary that has no equivalent in Marathi.',
     linguisticBackground: 'Tribal language of the Indo-Aryan family. Primarily oral. Written occasionally in Devanagari.',
@@ -148,7 +148,7 @@ export const languages: Language[] = [
     category: 'language',
     color: '#6B4423',
     gradient: 'from-orange-700 to-orange-900',
-    icon: '🎨',
+    icon: 'ðŸŽ¨',
     tags: ['Tribal', 'Adivasi', 'Oral Tradition', 'Endangered'],
     coordinates: [19.8762, 72.9850],
     contributors: 41,
@@ -157,15 +157,15 @@ export const languages: Language[] = [
   {
     id: 'bhili',
     name: 'Bhili',
-    nativeName: 'भिली',
+    nativeName: 'à¤­à¤¿à¤²à¥€',
     region: 'Satpura Hills',
     state: 'Maharashtra / Madhya Pradesh',
     community: 'Bhil Tribal Community',
     speakers: 12000000,
-    wordCount: 342,
-    phraseCount: 89,
-    storyCount: 61,
-    audioCount: 98,
+    wordCount: 14,
+    phraseCount: 6,
+    storyCount: 3,
+    audioCount: 2,
     description: 'A cluster of tribal dialects spoken by the Bhil people across central India, with deep roots in forest ecology and oral mythology.',
     longDescription: 'Bhili refers to a group of related dialects spoken by the Bhil tribal community across Maharashtra, Madhya Pradesh, Rajasthan and Gujarat. In Maharashtra, Bhili is primarily spoken in the Satpura hill regions of Nandurbar and Dhule. The language carries rich oral mythology, ecological knowledge, and musical traditions that are central to Bhil cultural identity.',
     linguisticBackground: 'Central Dravidian-influenced Indo-Aryan dialect cluster. Significant oral literary tradition.',
@@ -173,7 +173,7 @@ export const languages: Language[] = [
     category: 'language',
     color: '#4A5568',
     gradient: 'from-gray-600 to-gray-800',
-    icon: '🌲',
+    icon: 'ðŸŒ²',
     tags: ['Tribal', 'Bhil', 'Satpura', 'Forest Ecology'],
     coordinates: [21.7645, 74.2115],
     contributors: 52,
@@ -269,7 +269,7 @@ export const words: Word[] = [
     languageId: 'konkani',
     word: 'Sobit',
     pronunciation: 'so-bit',
-    meaning: 'Beautiful, lovely — used to describe a person, place or moment with genuine affection; carries more warmth than the Marathi equivalent',
+    meaning: 'Beautiful, lovely â€” used to describe a person, place or moment with genuine affection; carries more warmth than the Marathi equivalent',
     partOfSpeech: 'adjective',
     exampleSentence: 'Samachar sobit aila tuzo.',
     exampleTranslation: 'Beautiful news has come your way.',
@@ -354,18 +354,18 @@ export const stories: Story[] = [
     titleTranslation: 'The Queen of the Deep',
     language: 'Malvani',
     region: 'Sindhudurg, Konkan',
-    content: `Khup purvi, Malvan kinaaryas ek mhasoli rahichi. Tich nav Nili ani ti itki sundar hoti ki samdrachya laata tichyasaathi thambyat. Pan Nili la ekach dukh hoti — tila manasaanchi bhaasha samajat nahi.
+    content: `Khup purvi, Malvan kinaaryas ek mhasoli rahichi. Tich nav Nili ani ti itki sundar hoti ki samdrachya laata tichyasaathi thambyat. Pan Nili la ekach dukh hoti â€” tila manasaanchi bhaasha samajat nahi.
 
 Ek diwas, ek taruN maaseman jhola tumbarun kinaaryas aala. Tichi jal drishti tyawarchi ani tichi karuNa jagali. Tine sagaryach ghol lya aaplyaat neli, ani tyaat ek raan phul hoti jo sirf ek vaarel umanarchan.
 
-Maasemanaani ti phul manaakar ghatlya ani aplyaa avashaat thewli. Sagle watele, aata ji kaahi sangnar to ekla ahe. Pan tyaa raatri, tyaachya swapnat, samudra bolu lagla — ani he bhaasha tya phulachich hoti.
+Maasemanaani ti phul manaakar ghatlya ani aplyaa avashaat thewli. Sagle watele, aata ji kaahi sangnar to ekla ahe. Pan tyaa raatri, tyaachya swapnat, samudra bolu lagla â€” ani he bhaasha tya phulachich hoti.
 
 Sakaali uthaun to kinaaryas gela. Tyane khol aawazat mhantale, "Nili, mi aahe." Tyaa kshanat, samudraacha avaz badlala.`,
-    contentTranslation: `Long ago, a great whale lived along the shores of Malvan. Her name was Nili and she was so beautiful that the ocean waves would stop for her. But Nili had one sorrow — she could not understand human language.
+    contentTranslation: `Long ago, a great whale lived along the shores of Malvan. Her name was Nili and she was so beautiful that the ocean waves would stop for her. But Nili had one sorrow â€” she could not understand human language.
 
 One day, a young fisherman came to the shore, his nets filled to the brim. Her gaze fell upon him and compassion stirred within her. She took the deepest whirlpool of the ocean into herself, and within it was a forest flower that bloomed for only a single moment.
 
-The fisherman accepted the flower with reverence and kept it close to his heart. Everyone thought whatever he would say next, he would say alone. But that night, in his dream, the ocean began to speak — and that language was the language of that flower.
+The fisherman accepted the flower with reverence and kept it close to his heart. Everyone thought whatever he would say next, he would say alone. But that night, in his dream, the ocean began to speak â€” and that language was the language of that flower.
 
 In the morning, he went to the shore. In a deep voice he said, "Nili, I am here." At that very moment, the voice of the ocean changed.`,
     summary: 'A folk tale about a great whale who teaches a fisherman the language of the sea, reflecting Malvani beliefs about nature and communication.',
@@ -389,20 +389,20 @@ In the morning, he went to the shore. In a deep voice he said, "Nili, I am here.
     region: 'Amravati, Vidarbha',
     content: `Amravati chi shhet mhanje aasman ani maati mhela jod. Prateek varshi kapus firutvela, shhetkaryancha kaala hi ranaat baghut basayo.
 
-Ek godhil pakshi kapusaavar baslich rakhat hota. Shhetkaracha mulga tyaala udaawayacha prayatna karet hota pan toh uda nako. Bapaaani pahile ani mhantale — "Udau nako. Ti pakshi aplyaa shetatil asel pahili mi kahi bolelo nahi."
+Ek godhil pakshi kapusaavar baslich rakhat hota. Shhetkaracha mulga tyaala udaawayacha prayatna karet hota pan toh uda nako. Bapaaani pahile ani mhantale â€” "Udau nako. Ti pakshi aplyaa shetatil asel pahili mi kahi bolelo nahi."
 
-Tya hiwaalyaat, kapusachi boli kharab zali. Sagalyaani mhantale pik bud. Pan godhilachya gharyaat — teen navin godhil zale. Shahetaasathi ti rangat hoti. Bapaaani mhatle, "Aplyaa aadar keli mi, ani aashirwaad dila tine."`,
+Tya hiwaalyaat, kapusachi boli kharab zali. Sagalyaani mhantale pik bud. Pan godhilachya gharyaat â€” teen navin godhil zale. Shahetaasathi ti rangat hoti. Bapaaani mhatle, "Aplyaa aadar keli mi, ani aashirwaad dila tine."`,
     contentTranslation: `The fields of Amravati are where the sky and the earth are bonded. Every year when the cotton bloomed, the dark days of farmers would turn golden in the fields.
 
-A sparrow had made her nest in the cotton. The farmer's son kept trying to shoo her away but she wouldn't leave. The father saw this and said — "Don't drive her away. This bird must have been the first to see my field; I won't say anything."
+A sparrow had made her nest in the cotton. The farmer's son kept trying to shoo her away but she wouldn't leave. The father saw this and said â€” "Don't drive her away. This bird must have been the first to see my field; I won't say anything."
 
-That winter, the cotton harvest was poor. Everyone said the crop was ruined. But in the sparrow's nest — three new sparrows had been born. They were singing for the land. The father said, "I showed respect, and she gave a blessing."`,
+That winter, the cotton harvest was poor. Everyone said the crop was ruined. But in the sparrow's nest â€” three new sparrows had been born. They were singing for the land. The father said, "I showed respect, and she gave a blessing."`,
     summary: 'A short Varhadi moral tale about a cotton farmer who respects a sparrow\'s nest, reflecting the intimate relationship between Vidarbha farmers and their land.',
     contributor: 'Vitthal Dhore',
     contributorRole: 'Farmer and Folk Narrator, Amravati',
     hasAudio: false,
     category: 'folk-tale',
-    culturalContext: 'This story type — where a farmer\'s small act of kindness to a bird or animal is rewarded — is extremely common in Varhadi oral tradition. The cotton field (kapusachi shhet) is a powerful symbol in Vidarbha storytelling, given the centrality of cotton farming to the region\'s identity.',
+    culturalContext: 'This story type â€” where a farmer\'s small act of kindness to a bird or animal is rewarded â€” is extremely common in Varhadi oral tradition. The cotton field (kapusachi shhet) is a powerful symbol in Vidarbha storytelling, given the centrality of cotton farming to the region\'s identity.',
     dateAdded: '2025-11-11',
     verified: true,
     readTime: 4,
@@ -418,15 +418,15 @@ That winter, the cotton harvest was poor. Everyone said the crop was ruined. But
     region: 'Palghar, Maharashtra',
     content: `Hirva na ranaat jaun tarpa vajavat hota. Tyachi dhun itkhi madhur hoti ki pakshi aekat thambat, paanhi aishat basun rahile.
 
-Aek din, tyaan ekan uthala aawaz aeikla — "Hiraava, tu jo vajavtoes tya dhuntun aamha bolu." Hirva bharala. Tyane pahile — koni nahi. Pan dhun thamble tyachi, ani bolu lagle.
+Aek din, tyaan ekan uthala aawaz aeikla â€” "Hiraava, tu jo vajavtoes tya dhuntun aamha bolu." Hirva bharala. Tyane pahile â€” koni nahi. Pan dhun thamble tyachi, ani bolu lagle.
 
 Ran mhanje jo distho, te fakta zad ani paani nahi ahe. Tyat aawaz ahe, smruti ahe, aadi manasanchi maata ahe. Jo tyaa aawazaas aiku shakto, toch khara Warli ahe.`,
     contentTranslation: `Hirva went into the forest to play the tarpa. His melody was so sweet that birds stopped to listen, and the stream sat quietly to hear.
 
-One day, he heard a voice rise from within — "Hirva, speak to us through the tune you play." Hirva was astonished. He looked around — no one was there. But his tune paused, and then began to speak.
+One day, he heard a voice rise from within â€” "Hirva, speak to us through the tune you play." Hirva was astonished. He looked around â€” no one was there. But his tune paused, and then began to speak.
 
-The forest is not merely what you see — not just trees and water. Within it lives voice, memory, and the primordial mother of humanity. The one who can hear that voice — that one is the true Warli.`,
-    summary: 'A ritual narrative about a young Warli boy whose tarpa music allows him to hear the voice of the forest — a story central to Warli spiritual belief.',
+The forest is not merely what you see â€” not just trees and water. Within it lives voice, memory, and the primordial mother of humanity. The one who can hear that voice â€” that one is the true Warli.`,
+    summary: 'A ritual narrative about a young Warli boy whose tarpa music allows him to hear the voice of the forest â€” a story central to Warli spiritual belief.',
     contributor: 'Sakharam Bhau Gamit',
     contributorRole: 'Warli Folk Artist and Elder, Palghar',
     hasAudio: true,
@@ -448,7 +448,7 @@ The forest is not merely what you see — not just trees and water. Within it li
     content: `Goa thi mhizo khabar, thi deva doryant sasoillya. Ek burai zali hoti. Kalloji thi ek zhatkar baye. Tine daak ani kali mati gheun devacho rup banayilo. Mhize tho devo, thi sangli, aiz poltelem asa.
 
 Soglyanik hanv sangtam: rayan chi bhas visroch naka. Thi bhas mhunn aiz tumi aso, faleam tumi kosol?`,
-    contentTranslation: `I have heard of Goa's story — of a god forgotten in the sea. There was a great calamity. There was a woman named Kalloji. She took clay and black soil and made the form of the god. This god, she said, is returning today.
+    contentTranslation: `I have heard of Goa's story â€” of a god forgotten in the sea. There was a great calamity. There was a woman named Kalloji. She took clay and black soil and made the form of the god. This god, she said, is returning today.
 
 I tell everyone: do not forget the language of the ancestors. That language is who you are today. Without it, what will you be tomorrow?`,
     summary: 'A Konkani oral story about cultural memory, a forgotten deity, and the urgency of linguistic preservation, told by a village elder.',
@@ -483,7 +483,7 @@ export const audioRecordings: AudioRecording[] = [
     duration: 47,
     dateRecorded: '2025-10-10',
     verified: true,
-    plays: 234,
+    plays: 34,
     audioUrl: '/audio/a1_fishermans_call.mp3',
   },
   {
@@ -500,7 +500,7 @@ export const audioRecordings: AudioRecording[] = [
     duration: 183,
     dateRecorded: '2025-08-25',
     verified: true,
-    plays: 412,
+    plays: 41,
     audioUrl: '/audio/a2_tarpa_chant.mp3',
   },
   {
@@ -517,7 +517,7 @@ export const audioRecordings: AudioRecording[] = [
     duration: 126,
     dateRecorded: '2025-11-05',
     verified: true,
-    plays: 189,
+    plays: 28,
     audioUrl: '/audio/a3_harvest_ovi.mp3',
   },
   {
@@ -534,7 +534,7 @@ export const audioRecordings: AudioRecording[] = [
     duration: 312,
     dateRecorded: '2025-09-14',
     verified: true,
-    plays: 867,
+    plays: 47,
     audioUrl: '/audio/a4_abhang.mp3',
   },
   {
@@ -551,7 +551,7 @@ export const audioRecordings: AudioRecording[] = [
     duration: 94,
     dateRecorded: '2025-07-19',
     verified: false,
-    plays: 67,
+    plays: 12,
     audioUrl: '/audio/a5_wedding_song.mp3',
   },
   {
@@ -568,7 +568,7 @@ export const audioRecordings: AudioRecording[] = [
     duration: 58,
     dateRecorded: '2025-10-28',
     verified: true,
-    plays: 143,
+    plays: 19,
     audioUrl: '/audio/a6_boat_prayers.mp3',
   },
   {
@@ -580,12 +580,12 @@ export const audioRecordings: AudioRecording[] = [
     location: 'Dhule',
     region: 'Khandesh',
     title: 'Ovi Song for Pounding Grain',
-    description: 'Traditional rhythmic song sung while pounding grain — the rhythm matches the pounding strokes',
+    description: 'Traditional rhythmic song sung while pounding grain â€” the rhythm matches the pounding strokes',
     category: 'folk-story',
     duration: 112,
     dateRecorded: '2025-12-02',
     verified: false,
-    plays: 45,
+    plays: 8,
     audioUrl: '/audio/a7_grain_song.mp3',
   },
 ];
@@ -639,7 +639,7 @@ export const pendingContributions: PendingContribution[] = [
   {
     id: 'pc1',
     type: 'word',
-    title: '"Kaajwi" — Malvani word for twilight fishing',
+    title: '"Kaajwi" â€” Malvani word for twilight fishing',
     language: 'Malvani',
     region: 'Sindhudurg',
     contributor: 'Arun Harmalkar',
@@ -672,7 +672,7 @@ export const pendingContributions: PendingContribution[] = [
   {
     id: 'pc4',
     type: 'phrase',
-    title: '"Ran cha raja" — Warli ceremonial phrase',
+    title: '"Ran cha raja" â€” Warli ceremonial phrase',
     language: 'Warli',
     region: 'Palghar',
     contributor: 'Anonymous',
@@ -684,7 +684,7 @@ export const pendingContributions: PendingContribution[] = [
   {
     id: 'pc5',
     type: 'word',
-    title: '"Sosal" — Varhadi word for a sudden summer squall',
+    title: '"Sosal" â€” Varhadi word for a sudden summer squall',
     language: 'Varhadi',
     region: 'Vidarbha',
     contributor: 'Hemant Shinde',
@@ -698,14 +698,14 @@ export const pendingContributions: PendingContribution[] = [
 // IMPACT STATS
 // ============================================================
 export const impactStats = {
-  languagesDocumented: 14,
-  dialectsRecorded: 31,
-  wordsCollected: 4218,
-  phrasesCollected: 1240,
-  storiesArchived: 616,
-  audioRecordings: 1423,
-  contributors: 842,
-  regionsDocumented: 28,
+  languagesDocumented: 7,
+  dialectsRecorded: 12,
+  wordsCollected: 312,
+  phrasesCollected: 84,
+  storiesArchived: 28,
+  audioRecordings: 47,
+  contributors: 38,
+  regionsDocumented: 9,
 };
 
 // ============================================================
@@ -771,13 +771,13 @@ export const speakerPopulationByRegion = [
 ];
 
 export const recentActivity = [
-  { id: 'act1', type: 'word',    language: 'Malvani',  text: '"Kaajwi" word documented', time: '2m ago',   icon: '📝' },
-  { id: 'act2', type: 'audio',   language: 'Warli',    text: 'New audio recording added', time: '18m ago',  icon: '🎙️' },
-  { id: 'act3', type: 'story',   language: 'Varhadi',  text: 'Harvest folk tale archived', time: '1h ago',   icon: '📖' },
-  { id: 'act4', type: 'phrase',  language: 'Ahirani',  text: 'Proverb verified by linguist', time: '3h ago', icon: '💬' },
-  { id: 'act5', type: 'word',    language: 'Bhili',    text: '"Jhoomar" documented', time: '5h ago',        icon: '📝' },
-  { id: 'act6', type: 'audio',   language: 'Konkani',  text: 'Boat prayer recorded', time: '8h ago',        icon: '🎙️' },
-  { id: 'act7', type: 'story',   language: 'Malvani',  text: 'Fishing legend submitted', time: '12h ago',   icon: '📖' },
+  { id: 'act1', type: 'word',    language: 'Malvani',  text: '"Kaajwi" word documented', time: '2m ago',   icon: 'ðŸ“' },
+  { id: 'act2', type: 'audio',   language: 'Warli',    text: 'New audio recording added', time: '18m ago',  icon: 'ðŸŽ™ï¸' },
+  { id: 'act3', type: 'story',   language: 'Varhadi',  text: 'Harvest folk tale archived', time: '1h ago',   icon: 'ðŸ“–' },
+  { id: 'act4', type: 'phrase',  language: 'Ahirani',  text: 'Proverb verified by linguist', time: '3h ago', icon: 'ðŸ’¬' },
+  { id: 'act5', type: 'word',    language: 'Bhili',    text: '"Jhoomar" documented', time: '5h ago',        icon: 'ðŸ“' },
+  { id: 'act6', type: 'audio',   language: 'Konkani',  text: 'Boat prayer recorded', time: '8h ago',        icon: 'ðŸŽ™ï¸' },
+  { id: 'act7', type: 'story',   language: 'Malvani',  text: 'Fishing legend submitted', time: '12h ago',   icon: 'ðŸ“–' },
 ];
 
 export const endangermentTrend = [
@@ -854,3 +854,7 @@ export const mapMarkers = [
     region: 'Mumbai',
   },
 ];
+
+
+
+
