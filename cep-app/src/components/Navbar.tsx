@@ -3,10 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Menu, X, Mic, Globe, BookOpen, Music2, Map,
-  Info, BarChart2, Shield, ChevronRight
+  Info, BarChart2, Shield, ChevronRight, House
 } from 'lucide-react';
 
 const navLinks = [
+  { label: 'Home',      href: '/',            icon: House,    desc: 'Back to main page' },
   { label: 'Explore',    href: '/explore',     icon: Globe,    desc: 'Regional languages & dialects' },
   { label: 'Stories',    href: '/stories',     icon: BookOpen, desc: 'Folk literature & oral tales' },
   { label: 'Audio',      href: '/audio',       icon: Music2,   desc: 'Live studio recordings' },
@@ -14,6 +15,8 @@ const navLinks = [
   { label: 'Impact',     href: '/dashboard',   icon: BarChart2,desc: 'Linguistic preservation data' },
   { label: 'About',      href: '/about',       icon: Info,     desc: 'Heritage mission & archive' },
 ];
+
+
 
 export const Navbar: React.FC = () => {
   const location = useLocation();
@@ -202,6 +205,8 @@ export const Navbar: React.FC = () => {
                 <div className="px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400">
                   Header Navigation
                 </div>
+
+
 
                 {navLinks.map(link => {
                   const active = isActive(link.href);

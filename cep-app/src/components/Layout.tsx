@@ -44,6 +44,7 @@ export const Toast: React.FC = () => {
 /* ─── Premium Dark Footer ────────────────────────────── */
 const footerLinks = {
   Explore: [
+    { label: 'Home', href: '/' },
     { label: 'Languages', href: '/explore' },
     { label: 'Audio Archive', href: '/audio' },
     { label: 'Stories', href: '/stories' },
